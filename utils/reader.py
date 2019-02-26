@@ -17,7 +17,7 @@ def read_video(videoPath):
     return cap, success, frame
 
 
-def tracking_object_localisation(frame):
+def tracking_multi_object_localisation(frame):
     ## Select boxes
     bboxes = []
     colors = []
@@ -39,3 +39,8 @@ def tracking_object_localisation(frame):
 
     print('Selected bounding boxes {}'.format(bboxes))
     return bboxes, colors
+
+
+def tracking_one_object_localisation(frame):
+    bbox = cv2.selectROI(frame, False)
+    return bbox
